@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 if($_POST){
@@ -18,4 +19,26 @@ if($_POST){
         fclose($file);
         echo 'OK';
     }
+=======
+<?php
+
+if($_POST){
+
+    $fileName = 'newsletter.txt'; //set 777 permision for this file. 
+    $error = false;
+    
+    $email = $_POST['email'];
+    
+    if (!preg_match("/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i", $email)) 
+        $error = true;
+    
+    
+    //If all ok, save emali adress in file
+    if($error == false){
+        $file = fopen($fileName, a);
+        fwrite($file, "$email,");
+        fclose($file);
+        echo 'OK';
+    }
+>>>>>>> 685d55b0ff306021b67107a055d26b1b9b1a4262
 }
